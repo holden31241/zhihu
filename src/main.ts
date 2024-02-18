@@ -22,12 +22,12 @@ axios.interceptors.request.use(config => {
   // store.commit('setError', { status: false, message: '' })
   // ---------------------------------------
   // get 请求，添加到 url 中
-  config.params = { ...config.params, icode: '9E5838CB89AB560B' }
+  config.params = { ...config.params, icode: 'B3C5F4E17AED013C' }
   if (config.data instanceof FormData) {
-    config.data.append('icode', '9E5838CB89AB560B')
+    config.data.append('icode', 'B3C5F4E17AED013C')
   } else {
     // 普通的 body 对象，添加到 data 中
-    config.data = { ...config.data, icode: '9E5838CB89AB560B' }
+    config.data = { ...config.data, icode: 'B3C5F4E17AED013C' }
   }
   // -----------------------------------
   // 发送请求时设置loading为true

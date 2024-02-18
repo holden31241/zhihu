@@ -1,6 +1,6 @@
 <template>
   <div class="login-page mx-auto p-3 w-330">
-    <h5 class="my-4 text-center">登录到者也</h5>
+    <h5 class="my-4 text-center">登录到知乎</h5>
     <!-- 触发子组件emit事件 -->
     <validate-form @form-submit="onFormSubmit">
       <!-- 默认插槽 -->

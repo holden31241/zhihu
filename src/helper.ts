@@ -1,5 +1,6 @@
 import { ColumnProps, ImageProps } from './store'
 import { UserDataProps } from './store/user'
+import createMessage from './components/createMessage'
 // 对oss图片进行缩放
 export function generateFitUrl(data: ImageProps, width: number, height: number, format = ['m_pad']) {
   if (data && data.url) {
@@ -49,6 +50,18 @@ interface TestProps {
   name: string;
 }
 const testData: TestProps[] = [{ _id: '1', name: 'a' }, { _id: '2', name: 'b' }]
+
+export const commonUploadCheck = (file: File) => {
+  const result = beforeUploadCheck(file, { format: ['image/jpeg', 'image/png'], size: 1 })
+  const { passed, error } = result
+  if (error === 'format') {
+    createMessage('上传图片只能是 JPG/PNG 格式!', 'error', 2000)
+  }
+  if (error === 'size') {
+    createMessage('上传图片大小不能超过 1Mb', 'error', 2000)
+  }
+  return passed
+}
 
 // 数组转换为对象，键为存储在数组中的对象属性id
 // extends 类型约束，保证泛型含有string属性
